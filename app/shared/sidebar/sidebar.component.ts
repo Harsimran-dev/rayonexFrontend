@@ -16,7 +16,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule, NgIf } from '@angular/common';
 import { VerticalSidebarService } from './sidebar.service';
 import { StoreService } from 'src/app/services/store/store.service';
-import { JobService } from 'src/app/services/job/job.service';
+
 import { ADMIN_ROUTES } from './admin-items';
 
 @Component({
@@ -46,7 +46,7 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private verticalSidebarService: VerticalSidebarService,
-    private jobService: JobService
+  
   ) {}
 
   ngOnInit() {
@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
     if ( StoreService.isAdminLoggedIn()) {
       this.loadAdminSidebar();
     } else {
-      this.updateRoutes();
+    
     }
 
 
@@ -88,38 +88,6 @@ export class SidebarComponent implements OnInit {
   }
 
 
-
-  updateRoutes(): void {
-    const userId = StoreService.getUserData().userId;
-    this.jobService.getCompanyTypeByUserId(userId).subscribe(
-      (companyTypeData: any) => {
-        this.sidebarnavItems = [...this.verticalSidebarService.MENUITEMS];
-        if (companyTypeData === 'defined_benefit') {
-          console.log("1");
-          this.removeRoute('Defined Contribution');
-          this.removeRoute('My Investments');
-          this.removeRoute('How To Invest');
-    
-        } else if (companyTypeData === 'defined_contribution') {
-          console.log("2");
-          this.removeRoute('Defined Benefit');
-        } else {
-          this.sidebarnavItems = [...ROUTES];
-          console.log("3");
-          this.removeRoute('Defined Contribution');
-          this.removeRoute('Defined Benefit');
-          this.removeRoute('My Investments');
-        }
-      },
-      (error) => {
-        this.sidebarnavItems = [...ROUTES];
-        console.error('Error fetching company type:', error);
-        this.removeRoute('Defined Contribution');
-        this.removeRoute('Defined Benefit');
-        this.removeRoute('My Investments');
-      }
-    );
-  }
 
   private removeRoute(title: string): void {
     const index = this.sidebarnavItems.findIndex(item => item.title === title);

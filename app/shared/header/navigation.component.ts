@@ -9,7 +9,7 @@ import { UserDetailsService } from 'src/app/services/user-details/user-details.s
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { VerticalSidebarService } from '../sidebar/sidebar.service';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
-import { MessageserviceService } from 'src/app/services/messageservice/messageservice.service';
+
 
 
 declare var $: any;
@@ -33,7 +33,7 @@ export class NavigationComponent implements AfterViewInit, OnInit {
   private readonly INACTIVITY_TIMEOUT_DURATION = 100000000000;
 
   constructor(
-    private messageService: MessageserviceService,
+
     private modalService: NgbModal,
     private router: Router,
     private authService: AuthenticationService,
@@ -57,23 +57,9 @@ export class NavigationComponent implements AfterViewInit, OnInit {
       }
     );
 
-    this.fetchPreviousConversations();
+  
   }
-  fetchPreviousConversations(): void {
-    this.messageService.getMessagesByUserId(StoreService.getUserData().userId).subscribe(
-      messages => {
-        this.previousConversations = messages;
-        this.adminConversations = messages.filter(conversation => conversation.senderId === 1);
-    
-        this.count = this.adminConversations.length;
-     
-        console.log('Previous conversations:', this.previousConversations);
-      },
-      error => {
-        console.error('Failed to fetch previous conversations:', error);
-      }
-    );
-  }
+
   navigateToHelpPage(): void {
     console.log("clicked")
     this.router.navigate(['/component/help']);
@@ -101,7 +87,7 @@ export class NavigationComponent implements AfterViewInit, OnInit {
   }
 
   logout(): void {
-    this.sidebarComponent.clearSidebarRefreshed();
+
     this.storeService.clearStorage();
     this.router.navigateByUrl('/login');
   }

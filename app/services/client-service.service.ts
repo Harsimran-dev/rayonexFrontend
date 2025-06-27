@@ -1,17 +1,15 @@
-// src/app/services/client.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Client } from '../models/Client';
- // we'll define model too
+import { environment } from 'src/app/enum/environment'; // adjust path if needed
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientServiceService {
 
-  private baseUrl = 'http://localhost:8080/api/clients'; // your Spring Boot URL
+  private baseUrl = `${environment.apiUrl}api/clients`; // use dynamic base URL
 
   constructor(private http: HttpClient) {}
 

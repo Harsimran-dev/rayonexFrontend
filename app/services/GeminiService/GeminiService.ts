@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/app/enum/environment';  // Import environment
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeminiService {
-  private apiUrl = 'http://localhost:8080/api/gemini/generate-content'; // Adjust URL if needed
+  private apiUrl = `${environment.apiUrl}api/gemini/generate-content`;  // Dynamic base URL
 
   constructor(private http: HttpClient) {}
 

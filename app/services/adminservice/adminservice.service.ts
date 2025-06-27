@@ -3,16 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StoreService } from '../store/store.service';
 import { Company } from 'src/app/models/Company';
-
-
-
+import { environment } from 'src/app/enum/environment'; // ✅ Import environment
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminserviceService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/admin';
+  private baseUrl = `${environment.apiUrl}api/v1/admin`; // ✅ Dynamic URL
 
   constructor(private http: HttpClient, private storeService: StoreService) { }
 
@@ -30,9 +28,6 @@ export class AdminserviceService {
       responseType: 'text'
     });
   }
-  
-  
-
 
   private createHeaders(): HttpHeaders {
     const token = StoreService.getToken();

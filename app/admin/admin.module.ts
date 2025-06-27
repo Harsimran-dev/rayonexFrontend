@@ -8,7 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxLoadingModule } from 'ngx-loading';
 
-import { AdminmessageComponent } from './adminmessage/adminmessage/adminmessage.component';
+
 
 
 
@@ -16,7 +16,6 @@ import { AdminmessageComponent } from './adminmessage/adminmessage/adminmessage.
   declarations: [
     UseradminComponent,
 
-    AdminmessageComponent
   ],
   imports: [
     CommonModule,

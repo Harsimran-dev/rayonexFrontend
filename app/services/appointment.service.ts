@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/app/enum/environment'; // Adjust path as needed
 
 export interface Appointment {
   id?: number;
   date: string;
-  clientId: 
-    number;
-    duration:number|null;
-
+  clientId: number;
+  duration: number | null;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private baseUrl = 'http://localhost:8080/api/appointments';
+  private baseUrl = `${environment.apiUrl}api/appointments`;
 
   constructor(private http: HttpClient) {}
 
