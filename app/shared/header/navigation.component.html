@@ -1,0 +1,29 @@
+<ul class="navbar-nav float-end">
+  <li class="nav-item" style="margin-top: 15px;">
+    <div class="position-relative" style="line-height: 2.5rem;" (click)="navigateToHelpPage()">
+      <i class="bi bi-bell" style="font-size: 1.5rem;"  ></i>
+      <span class="badge bg-primary position-absolute top-0 start-100 translate-middle">
+        {{this.count}}
+      </span>
+    </div>
+  </li>
+
+  <li class="nav-item" ngbDropdown placement="bottom-end">
+    <a
+      ngbDropdownToggle
+      class="nav-link waves-effect waves-dark pro-pic"
+      href="javascript:void(0)"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <span class="ms-2">{{ userName }}</span>
+    </a>
+    <div class="drop-men-right" ngbDropdownMenu>
+      <a class="dropdown-item" (click)="navigateToprofilePage()"> My Profile</a>
+   
+    
+      <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a>
+    </div>
+  </li>
+</ul>

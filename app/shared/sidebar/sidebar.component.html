@@ -1,0 +1,14 @@
+<nav class="left-menu">
+    <ul id="sidebarnav">
+        <!-- First level menu -->
+        <li class="left-menu-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems"
+            [routerLinkActive]="sidebarnavItem.submenu.length !== 0 ? '' : 'active'">
+            <a class="left-menu-link waves-effect waves-dark" [routerLink]="[sidebarnavItem.path]"
+                (click)="addExpandClass(sidebarnavItem.title)"
+                [routerLinkActive]="sidebarnavItem.submenu.length !== 0 ? '' : 'active'">
+                <i [ngClass]="[sidebarnavItem.icon]"></i>
+                <span class="hide-menu">{{sidebarnavItem.title}}</span>
+            </a>
+        </li>
+    </ul>
+</nav>

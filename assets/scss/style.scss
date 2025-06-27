@@ -1,0 +1,18 @@
+
+@import "variable";
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+
+
+@import "core/core";
+@import "scafholdings";
+@import "components";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+@import "responsive";
+
+
+@import "custom";

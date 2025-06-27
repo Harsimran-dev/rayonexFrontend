@@ -1,0 +1,142 @@
+<div class="nocontribution-container">
+
+  <div class="search-info">
+    This page is powered by Google Gemini. Double tap to search.
+  </div>
+  <!-- Rah ID Input -->
+  <div class="input-container">
+    <input type="text" [formControl]="rahIdInput" placeholder="Enter Rah ID..." class="rah-id-input"/>
+  </div>
+
+  <!-- Suggestions List -->
+  <ul *ngIf="suggestions.length > 0" class="suggestions-list">
+    <li *ngFor="let suggestion of suggestions" (click)="selectRahId(suggestion.rahId)">
+      {{ suggestion.rahId }}
+    </li>
+  </ul>
+
+  <!-- Record Details -->
+  <div *ngIf="selectedRecord" class="record-details">
+    <h3>Record Details</h3>
+  
+    <!-- Rah ID Card -->
+    <mat-card class="detail-card rah-id-card">
+      <mat-card-header>
+        <mat-card-title><strong>Rah ID:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ selectedRecord.rahId }}
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Category Card -->
+    <mat-card class="detail-card category-card">
+      <mat-card-header>
+        <mat-card-title><strong>Category:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ selectedRecord.category }}
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Description Card -->
+    <mat-card class="detail-card description-card">
+      <mat-card-header>
+        <mat-card-title><strong>Description:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <span 
+              (mouseover)="showTooltip()" 
+              (mouseleave)="hideTooltip()" 
+              (dblclick)="extractWordFromDescription($event)">
+          {{ selectedRecord.description }}
+        </span>
+    
+        <!-- Button with start/stop functionality -->
+        <button mat-raised-button 
+                class="audio-toggle-btn" 
+                (click)="toggleSpeech()">
+          {{ isPlaying ? 'Stop Audio' : 'Play Audio' }}
+        </button>
+        
+      </mat-card-content>
+    </mat-card>
+    
+    
+    
+    
+  
+    <!-- Compact ID Card -->
+    <mat-card class="detail-card compact-id-card">
+      <mat-card-header>
+        <mat-card-title><strong>Compact ID:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ selectedRecord.compactId }}
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Program Details Card -->
+    <mat-card class="detail-card program-details-card">
+      <mat-card-header>
+        <mat-card-title><strong>Program Details:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <pre (dblclick)="extractWordFromProgramDetails($event)">{{ selectedRecord.programDetails }}</pre>
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Seventies ID Card -->
+    <mat-card class="detail-card seventies-id-card">
+      <mat-card-header>
+        <mat-card-title><strong>Seventies ID:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ selectedRecord.seventiesId || 'N/A' }}
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Corresponding Pathogens Card -->
+    <mat-card class="detail-card pathogens-card">
+      <mat-card-header>
+        <mat-card-title><strong>Corresponding Pathogens:</strong></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ selectedRecord.correspondingPathogens || 'N/A' }}
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Recommendation Card -->
+<mat-card class="detail-card recommendation-card">
+  <mat-card-header>
+    <mat-card-title><strong>Recommendation:</strong></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <pre>{{ selectedRecord.recommendation }}</pre>
+  </mat-card-content>
+</mat-card>
+
+<!-- Image Card -->
+<mat-card class="detail-card image-card">
+  <mat-card-header>
+    <mat-card-title><strong>Related Image:</strong></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <img *ngIf="selectedRecord.image" 
+         [src]="selectedRecord.image" 
+         alt="Rah ID Image" 
+         class="rah-image"/>
+    <div *ngIf="!selectedRecord.image">No image available</div>
+  </mat-card-content>
+</mat-card>
+
+  </div>
+
+  <!-- Chat-Like Response Section -->
+  <div *ngIf="backendResponse" class="chat-response">
+    <div class="response-bubble" [innerHTML]="backendResponse"></div> <!-- Display backend response as HTML -->
+  </div>
+
+
+
+</div>

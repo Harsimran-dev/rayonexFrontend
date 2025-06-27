@@ -1,0 +1,48 @@
+<!-- Client Details Card -->
+
+
+  <div *ngIf="client" class="client-card-container">
+    <div class="card shadow p-4 mb-4 rounded">
+      <h3 class="text-center text-primary mb-4">Client Details</h3>
+      <div class="row">
+        <div class="col-md-6 mb-3"><p><strong>Title:</strong> {{ client.title }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Gender:</strong> {{ client.gender }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>First Name:</strong> {{ client.firstName }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Surname:</strong> {{ client.surname }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Date of Birth:</strong> {{ client.dateOfBirth }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Address:</strong> {{ client.address }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Post Code:</strong> {{ client.postCode }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Email Address:</strong> {{ client.email }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Telephone:</strong> {{ client.telephone }}</p></div>
+        <div class="col-md-6 mb-3"><p><strong>Mobile:</strong> {{ client.mobile }}</p></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- TABS -->
+  <mat-tab-group class="client-tabs" [selectedIndex]="selectedIndex" (selectedIndexChange)="selectedIndex = $event">
+    <mat-tab label="Appointments" [labelClass]="'tab-0'">
+      <app-client-appointments [clientId]="clientId"></app-client-appointments>
+    </mat-tab>
+    <mat-tab label="Treatments" [labelClass]="'tab-1'">
+      <app-treatment-record
+        [clientId]="clientId"
+        [firstName]="client.firstName"
+        [surname]="client.surname"
+        [dateOfBirth]="client.dateOfBirth">
+      </app-treatment-record>
+    </mat-tab>
+    <mat-tab label="Analysis" [labelClass]="'tab-2'">
+      <app-word-reader></app-word-reader> <!-- ✅ Embedded here -->
+    </mat-tab>
+    <mat-tab label="Home treatment" [labelClass]="'tab-3'">
+      1
+    </mat-tab>
+  </mat-tab-group>
+  
+
+
+
+
+
+

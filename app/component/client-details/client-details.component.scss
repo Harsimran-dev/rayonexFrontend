@@ -1,0 +1,107 @@
+/* Styling for the client card */
+.client-card-container {
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #495057;
+}
+
+.card strong {
+  color: #007bff;
+}
+
+/* Styling for Material Tabs */
+/* In your component-specific SCSS or CSS */
+::ng-deep .mat-tab-group {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+::ng-deep .mat-tab-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #007bff;
+  text-transform: capitalize;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Default active tab style (if no specific color) */
+::ng-deep .mat-tab-label-active {
+  color: #fff !important;
+  background-color: #007bff !important;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Per-tab color styles via label classes */
+
+::ng-deep .mat-tab-label.tab-0 {
+  background-color: #007bff;  /* Blue */
+  color: white;
+}
+::ng-deep .mat-tab-label.tab-0.mat-tab-label-active {
+  background-color: #0056b3; /* Darker blue active */
+}
+
+::ng-deep .mat-tab-label.tab-1 {
+  background-color: #28a745;  /* Green */
+  color: white;
+}
+::ng-deep .mat-tab-label.tab-1.mat-tab-label-active {
+  background-color: #1e7e34; /* Darker green active */
+}
+
+::ng-deep .mat-tab-label.tab-2 {
+  background-color: #ffc107;  /* Amber/Yellow */
+  color: black;
+}
+::ng-deep .mat-tab-label.tab-2.mat-tab-label-active {
+  background-color: #d39e00; /* Darker amber active */
+}
+
+::ng-deep .mat-tab-label.tab-3 {
+  background-color: #dc3545;  /* Red */
+  color: white;
+}
+::ng-deep .mat-tab-label.tab-3.mat-tab-label-active {
+  background-color: #a71d2a; /* Darker red active */
+}
+
+/* Hover effect for all tabs */
+::ng-deep .mat-tab-label:hover {
+  filter: brightness(85%);
+}
+
+/* Tab content body styling */
+::ng-deep .mat-tab-body {
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 0 0 5px 5px;
+}
+
+/* Scrollable container styling */
+.scrollable-container {
+  max-height: 90vh; /* or any fixed height like 600px */
+  overflow-y: auto;
+  padding-right: 10px; /* optional, to prevent scrollbar overlap */
+}

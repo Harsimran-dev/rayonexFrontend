@@ -1,0 +1,76 @@
+<div class="client-form-container">
+
+  <!-- Add Client Section -->
+  <section class="add-client-section">
+    <h2>Add New Client</h2>
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+      <!-- form fields as before -->
+      <label>Title:</label>
+      <input formControlName="title" type="text" />
+
+      <label>Gender:</label>
+      <input formControlName="gender" type="text" />
+
+      <label>First Name:</label>
+      <input formControlName="firstName" type="text" />
+
+      <label>Surname:</label>
+      <input formControlName="surname" type="text" />
+
+      <label>Date of Birth:</label>
+      <input formControlName="dateOfBirth" type="date" />
+
+      <label>Address:</label>
+      <input formControlName="address" type="text" />
+
+      <label>Post Code:</label>
+      <input formControlName="postCode" type="text" />
+
+      <label>Email Address:</label>
+      <input formControlName="email" type="email" />
+
+      <label>Telephone:</label>
+      <input formControlName="telephone" type="text" />
+
+      <label>Mobile:</label>
+      <input formControlName="mobile" type="text" />
+
+      <button type="submit" [disabled]="clientForm.invalid">Save Client</button>
+    </form>
+  </section>
+
+  <!-- Existing Clients Section -->
+  <section class="existing-clients-section" *ngIf="clients.length > 0">
+    <h3>Existing Clients</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>First Name</th>
+          <th>Surname</th>
+          <th>Date of Birth</th>
+          <th>Address</th>
+          <th>Post Code</th>
+          <th>Email Address</th>
+          <th>Telephone</th>
+          <th>Mobile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients" (click)="viewClientDetails(client.id!)" style="cursor: pointer;">
+          <td>{{ client.title }}</td>
+          <td>{{ client.firstName }}</td>
+          <td>{{ client.surname }}</td>
+          <td>{{ client.dateOfBirth | date }}</td>
+          <td>{{ client.address }}</td>
+          <td>{{ client.postCode }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.telephone }}</td>
+          <td>{{ client.mobile }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>

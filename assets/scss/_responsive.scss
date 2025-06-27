@@ -1,0 +1,16 @@
+
+@media (min-width: 1024px) {
+  .wrap {
+    margin-left: 250px;
+  }
+}
+
+
+
+@include media-breakpoint-up(md) {
+  
+}
+
+
+@include media-breakpoint-down(md) {
+}

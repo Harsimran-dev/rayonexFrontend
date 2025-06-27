@@ -1,0 +1,80 @@
+<!-- Toggle Button -->
+<div class="text-end mb-4">
+  <button class="btn btn-primary" (click)="toggleCreateForm()">
+    {{ showCreateForm ? 'Back to Treatments List' : 'Create Treatment Plan' }}
+  </button>
+</div>
+
+<!-- Create Form Section -->
+<div *ngIf="showCreateForm; else treatmentList" class="card treatment-card">
+  <app-create-treatment-plan
+    [clientId]="clientId"
+    [firstName]="firstName"
+    [surname]="surname"
+    [dateOfBirth]="dateOfBirth"
+    [treatmentPlanId]="selectedPlanId"
+    [prefilledItems]="selectedPlanItems">
+  </app-create-treatment-plan>
+</div>
+
+<!-- Treatment Records Section -->
+<ng-template #treatmentList>
+  <div class="card treatment-card">
+    <h5 class="text-info mb-4">Treatment Records</h5>
+
+    <table class="table table-hover table-striped align-middle" *ngIf="treatmentPlans.length > 0; else noRecords">
+      <thead class="table-light">
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Closed</th>
+          <th>Rayostan Uhed Ist</th>
+          <th>Rayoscin 40 Report</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of treatmentPlans" (click)="viewPlan(plan.id!)" style="cursor: pointer;">
+          <td>{{ plan.date }}</td>
+          <td (click)="$event.stopPropagation()">
+            <div class="d-flex align-items-center gap-2">
+              <select
+                class="form-select form-select-sm"
+                [(ngModel)]="plan.rahDescription"
+              >
+                <option *ngFor="let option of healthProgramOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+          
+              <button
+                class="btn btn-sm btn-success"
+                (click)="updateDescription(plan); $event.stopPropagation()"
+                title="Save Description"
+              >
+                💾
+              </button>
+            </div>
+          </td>
+          
+          
+          
+          <td>
+            <span class="badge" [ngClass]="plan.closeRecord ? 'bg-success' : 'bg-warning'">
+              {{ plan.closeRecord ? 'Yes' : 'No' }}
+            </span>
+          </td>
+          <td>
+            <a [href]="'http://localhost:8080/api/treatment-plans/' + plan.id + '/rayostan-uhed-ist'" target="_blank">Download</a>
+          </td>
+          <td>
+            <a [href]="'http://localhost:8080/api/treatment-plans/' + plan.id + '/rayoscin40'" target="_blank">Download</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noRecords>
+      <p class="text-muted">No treatment records found.</p>
+    </ng-template>
+  </div>
+</ng-template>

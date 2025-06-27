@@ -1,0 +1,26 @@
+<app-spinner [backgroundColor]="'rgba(0, 0, 0, 0.5)'" *ngIf="isSubmitting"></app-spinner>
+
+<div class="custom-card">
+  <h2 class="custom-card-header">Login</h2>
+  <div class="custom-card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ngb-alert *ngIf="errorAlertVisible" type="danger" [dismissible]="true" (closed)="errorAlertVisible = false">
+      Login failed 
+      </ngb-alert>
+
+      <div class="custom-form-group">
+        <label class="custom-label">Email</label>
+        <input type="email" formControlName="email" class="custom-input" placeholder="Enter your email" />
+      </div>
+      <div class="custom-form-group">
+        <label class="custom-label">Password</label>
+        <input type="password" formControlName="password" class="custom-input" placeholder="Enter your password" />
+      </div>
+      
+      <div class="custom-button-group">
+        <button type="submit" class="custom-button">Login</button>
+        <a routerLink="../signup" class="custom-link">Sign Up</a>
+      </div>
+    </form>
+  </div>
+</div>

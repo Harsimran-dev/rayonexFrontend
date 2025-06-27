@@ -1,0 +1,54 @@
+
+.accordion {
+  .card {
+    margin-bottom: 1px;
+  }
+}
+
+
+
+
+.btn-info,
+.btn-danger,
+.btn-success,
+.btn-warning,
+.btn-info:hover,
+.btn-danger:hover,
+.btn-success:hover,
+.btn-warning:hover,
+.btn-outline-info:hover,
+.btn-outline-danger:hover,
+.btn-outline-success:hover,
+.btn-outline-warning:hover{
+    color: $white;
+}
+
+
+
+.badge {
+    &.badge-pill {
+      padding: 0.2em 0.6em;
+    }
+  }
+
+
+
+.card {
+  margin-bottom: 20px;
+  .card-subtitle {
+    margin-bottom: 10px;
+    color: $text-muted;
+  }
+  .card-title {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 1.125rem;
+  }
+}
+
+
+
+.table thead th,
+.table th {
+  font-weight: 500;
+}

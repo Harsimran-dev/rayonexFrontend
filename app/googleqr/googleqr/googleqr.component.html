@@ -1,0 +1,31 @@
+<ngb-alert *ngIf="errorAlertVisible" type="danger" [dismissible]="true" (closed)="errorAlertVisible = false">
+  {{ errorMessage }}
+</ngb-alert>
+
+
+
+<div *ngIf="responseData" class="qr-code-container">
+  <img [src]="responseData.qrCodeUri" alt="QR Code" class="qr-code">
+</div>
+
+<div class="form-container">
+  <form (ngSubmit)="submitCode()">
+    <div class="form-group">
+      <ngb-alert *ngIf="sixdigitAlertVisible" type="danger" [dismissible]="true" (closed)="sixdigitAlertVisible = false">
+        Code should be six digits
+      </ngb-alert>
+      <label for="validationCode">Enter 6-digit Validation Code:</label>
+      <input type="text" id="validationCode" name="validationCode" [(ngModel)]="validationCode" pattern="[0-9]{6}" required>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="verificationResponse" class="mt-3">
+  <ngb-alert [type]="verificationResponse.startsWith('Successfully') ? 'success' : 'danger'" 
+             [dismissible]="false">
+    {{ verificationResponse }}
+  </ngb-alert>
+</div>
+
+

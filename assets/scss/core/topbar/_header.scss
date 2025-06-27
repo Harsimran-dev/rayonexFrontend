@@ -1,0 +1,110 @@
+
+.topbar {
+  position: relative;
+  z-index: 100;
+  transition: 0.2s ease-in;
+  box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.06);
+  background: $topbar;
+  height: $topbar-height;
+  .navbar-collapse {
+    padding: 0px 12px 0 0;
+  }
+  .top-navbar {
+    min-height: $topbar-height;
+    padding: 0px; 
+    .navbar-header {
+      line-height: $topbar-navlink-height;
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        padding: $topbar-navbrand-padding;
+        .logo-icon {
+          margin-right: 6px;
+        }
+      }
+    }
+    .navbar-nav > .nav-item > .nav-link {
+      padding: $topbar-navlink-padding;
+      font-size: $topbar-navlink-font-size;
+      line-height: $topbar-navlink-height;
+      height: $topbar-navlink-height;
+    }
+    .navbar-nav > .nav-item {
+      transition: 0.2s ease-in;
+      &:hover {
+        background: $transparent-dark-bg;
+      }
+    }
+  }
+  .top-toggler,
+  .topbartoggler {
+    color: #fff;
+    padding: 0 16px;
+  }
+}
+
+.topbar {
+  .drop-men {
+    padding-top: 0px;
+    border: 0px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 991px) {
+  .topbar .top-navbar {
+    .navbar-collapse.show,
+    .navbar-collapse.collapsing {
+      display: block;
+      width: 100%;
+      border-top: 2px solid $border-color;
+      position: fixed;
+    }
+    .navbar-nav {
+      flex-direction: row;
+      .dropdown {
+        position: relative;
+      }
+    }
+    .navbar-nav > .nav-item > .nav-link {
+      padding: 0 12px;
+    }
+    .navbar-header {
+      display: flex;
+      align-items: center;
+      width: 100% !important;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar .top-navbar {
+    .navbar-nav {
+      flex-direction: row;
+      .dropdown {
+        position: static;
+      }
+    }
+    .drop-men {
+      position: absolute;
+      width: 100%;
+      left: 0 !important;
+      transform: translate(0px, 66px) !important;
+      .with-arrow {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .topbar .navbar-collapse {
+    position: relative;
+    top: 66px;
+  }
+  .topbar .top-navbar .navbar-header {
+    position: fixed;
+  }
+}

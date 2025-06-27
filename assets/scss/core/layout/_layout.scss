@@ -1,0 +1,109 @@
+
+
+ #custom-main-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.wrap {
+  background: #f2f7f8;
+  position: relative;
+  transition: 0.3s ease-in;
+}
+
+.wrap > .container-fluid {
+  padding: 20px;
+  min-height: calc(100vh - 180px);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+.footer {
+  padding: 12px 22px;
+}
+
+
+#custom-main-wrapper[data-layout="vertical"] {
+  .topbar .top-navbar .navbar-header {
+    transition: 0.3s ease-in;
+  }
+
+  &[data-leftmenu="full"] {
+    .wrap {
+      margin-left: 250px;
+    }
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  #custom-main-wrapper[data-layout="vertical"] {
+    &[data-leftmenu="full"] {
+      .topbar .top-navbar .navbar-header {
+        width: 250px;
+      }
+    }
+    &[side-posn="fixed"][data-leftmenu="full"] {
+      .topbar .top-navbar .navbar-collapse {
+        margin-left: 250px;
+      }
+    }
+    &[side-posn="fixed"][data-leftmenu="mini-sidebar"] {
+      .topbar .top-navbar .navbar-collapse {
+        margin-left: 64px;
+      }
+    }
+    &[data-leftmenu="mini-sidebar"] {
+      .topbar .top-navbar .navbar-header {
+        width: 64px;
+        .logo-text {
+          display: none;
+        }
+        &.expand-logo {
+          width: 250px;
+          .logo-text {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  #custom-main-wrapper {
+    &[data-layout="vertical"][data-leftmenu="full"] {
+      .wrap {
+        margin-left: 0;
+      }
+    }
+
+    &[data-leftmenu="full"] {
+      .left-sidebar {
+        left: -250px;
+      }
+    }
+    &.show-sidebar {
+      .left-sidebar {
+        left: 0;
+      }
+    }
+    &[data-layout="vertical"][side-posn="fixed"] {
+      .topbar .top-navbar {
+        .navbar-collapse {
+          position: relative;
+          top: 63px;
+        }
+      }
+    }
+    &[data-layout="vertical"][data-pos="fixed"][side-posn="fixed"] {
+      .topbar .top-navbar {
+        .navbar-collapse {
+          position: relative;
+          top: 63px;
+        }
+      }
+    }
+  }
+}

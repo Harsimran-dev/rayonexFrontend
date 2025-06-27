@@ -1,0 +1,251 @@
+/* Main container for the component */
+.nocontribution-container {
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  margin: 0 auto;
+}
+
+/* Input section for Rah ID */
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rah-id-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.rah-id-input:focus {
+  border-color: #4e73df;
+}
+
+/* Suggestions List */
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Record Details Section */
+.record-details {
+  margin-top: 20px;
+}
+
+.description-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.description-text {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.description-text:hover {
+  color: #0056b3;
+}
+
+/* Tooltip style */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+
+/* Chat-Like Response Section (Now on the Right) */
+.chat-response {
+  display: flex;
+  justify-content: flex-end; /* Align the content to the right */
+  margin-top: 20px;
+}
+
+.response-bubble {
+  background-color: #4e73df;
+  color: white;
+  padding: 12px;
+  border-radius: 20px;
+  max-width: 70%;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-size: 16px;
+}
+
+.response-bubble p {
+  margin: 0;
+}
+
+/* Optional: Add some animations for the response bubble */
+@keyframes bubbleAnimation {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.response-bubble {
+  animation: bubbleAnimation 0.4s ease-out;
+}
+.detail-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+/* Rah ID Card */
+.rah-id-card {
+  background-color: #e3f2fd; /* Light Blue */
+}
+
+/* Category Card */
+.category-card {
+  background-color: #ffecb3; /* Light Yellow */
+}
+
+/* Description Card */
+.description-card {
+  background-color: #f8bbd0; /* Light Pink */
+}
+
+/* Compact ID Card */
+.compact-id-card {
+  background-color: #c8e6c9; /* Light Green */
+}
+
+/* Program Details Card */
+.program-details-card {
+  background-color: #fff9c4; /* Light Lemon */
+}
+
+/* Seventies ID Card */
+.seventies-id-card {
+  background-color: #ffccbc; /* Light Coral */
+}
+
+/* Corresponding Pathogens Card */
+.pathogens-card {
+  background-color: #d1c4e9; /* Light Purple */
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+
+/* Styling for description text on hover */
+.description-text {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.description-text:hover {
+  color: #0056b3;
+}
+
+.search-info {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  padding: 5px;
+  border-top: 1px solid #ddd;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+.audio-toggle-btn {
+  background-color: #6200ea; /* Purple background */
+  color: white;              /* White text */
+  font-size: 16px;           /* Adjust font size */
+  padding: 10px 20px;        /* Add some padding for better appearance */
+  border-radius: 30px;       /* Rounded corners */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1.2px;     /* Slightly spaced letters for a cleaner look */
+  cursor: pointer;          /* Change cursor to indicate it's clickable */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition effect */
+  
+  &:hover {
+    background-color: lightseagreen; /* Darker purple on hover */
+    transform: scale(1.05);     /* Slightly enlarge button on hover */
+  }
+
+  &:focus {
+    outline: none;              /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(98, 0, 234, 0.6); /* Add custom focus outline */
+  }
+  .rah-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  &:active {
+    transform: scale(1);        /* Reset size when button is clicked */
+  }
+}
+

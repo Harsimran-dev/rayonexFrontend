@@ -1,0 +1,71 @@
+<!-- Appointments Section -->
+<div class="card shadow p-4 mb-4 rounded">
+    <h4 class="text-center text-success mb-3">Appointments</h4>
+  
+    <div class="text-center mb-3">
+      <button class="btn btn-outline-primary" (click)="fetchAppointments()">Load Appointments</button>
+    </div>
+  
+    <div *ngIf="appointments.length > 0; else noAppointments">
+      <ul class="list-group">
+        <li *ngFor="let appt of appointments" class="list-group-item d-flex justify-content-between align-items-center">
+          <span>
+            <i class="bi bi-calendar-event me-2"></i>
+            {{ appt.date | date: 'fullDate' }} - {{ appt.date | date: 'shortTime' }}
+          </span>
+          <span>
+       
+            {{ appt.duration }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  
+    <ng-template #noAppointments>
+      <p class="text-muted text-center">No appointments found.</p>
+    </ng-template>
+  </div>
+  
+  <!-- Create Appointment Form -->
+ <!-- Create Appointment Form -->
+<div class="card shadow p-4 mb-5 rounded">
+    <h5 class="text-center text-info mb-3">Create New Appointment</h5>
+  
+    <div class="row g-3 align-items-center justify-content-center">
+      <div class="col-auto">
+        <label for="appointmentDate" class="col-form-label">Select Date & Time:</label>
+      </div>
+      <div class="col-auto">
+        <input
+          type="datetime-local"
+          id="appointmentDate"
+          class="form-control"
+          [(ngModel)]="newAppointmentDate"
+          name="appointmentDate"
+        />
+      </div>
+  
+      <div class="col-auto">
+        <label for="duration" class="col-form-label">Duration (min):</label>
+      </div>
+      <div class="col-auto">
+        <input
+          type="number"
+          id="duration"
+          class="form-control"
+          [(ngModel)]="newAppointmentDuration"
+          name="appointmentDuration"
+          min="1"
+        />
+      </div>
+  
+      <div class="col-auto">
+        <button class="btn btn-success"
+                (click)="createAppointment()"
+                [disabled]="!newAppointmentDate || !newAppointmentDuration">
+          Create Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+  

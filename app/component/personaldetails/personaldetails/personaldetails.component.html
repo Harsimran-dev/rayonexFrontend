@@ -1,0 +1,119 @@
+<div class="container text-center">
+  <div [hidden]="submitted">
+    <h1>Personal Details Form</h1>
+    <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()" #f="ngForm">
+     
+      <ngb-alert *ngIf="birthApiSuccess" type="danger" [dismissible]="true" (closed)="birthApiSuccess = false">
+        {{ birthApiError }}
+      </ngb-alert>
+    
+      <ngb-alert *ngIf="userApibool" type="danger" [dismissible]="true" (closed)="userApibool = false">
+        {{ userApiError }}
+      </ngb-alert>
+      <ngb-alert *ngIf="userApiSuccess" type="success" [dismissible]="true" (closed)="userApiSuccess = false">
+        {{ userApiError }}
+      </ngb-alert>
+  
+    
+    
+
+      
+
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter full name (max 70 characters)">
+    </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+       
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" formControlName="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <select class="form-control" id="nationality" formControlName="nationality">
+          <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+        </select>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="education">Education(latest qualification)</label>
+        <input type="text" class="form-control" id="education" formControlName="education">
+      </div>
+
+      <div class="form-group">
+        <label for="niNumber">NI Number</label>
+        <input type="text" class="form-control" id="niNumber" formControlName="niNumber">
+      </div>
+
+
+      <button type="submit" class="btn btn-primary" >Save</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <!-- Submitted data display -->
+  </div>
+</div>
+
+
+<ngb-alert *ngIf="addressApibool" type="danger" [dismissible]="true" (closed)="addressApibool = false">
+  {{ addressApiError }}
+</ngb-alert>
+
+<div class="container text-center">
+  <div>
+    <h1>Address Details</h1>
+    <form  [formGroup]="addressForm"  (ngSubmit)="onAddressSubmit()" #f="ngForm">
+      <ngb-alert *ngIf="addressApiSuccess" type="success" (close)="addressApiSuccess = false">{{addressApiError}}</ngb-alert>
+     
+      <div class="form-group">
+        <label for="line1">Line 1</label>
+        <input type="text" class="form-control" id="line1" formControlName="line1">
+     
+      </div>
+
+      <div class="form-group">
+        <label for="line2">Line 2</label>
+        <input type="text" class="form-control" id="line2" formControlName="line2">
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city">
+       
+      </div>
+
+      <div class="form-group">
+        <label for="county">County</label>
+        <input type="text" class="form-control" id="county" formControlName="county">
+      </div>
+
+      <div class="form-group">
+        <label for="postalCode">Postal Code</label>
+        <input type="text" class="form-control" id="postalCode" formControlName="postalCode">
+       
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" formControlName="country">
+      
+      </div>
+
+      <button type="submit" class="btn btn-primary" >Save Address</button>
+    </form>
+  </div>
+</div>

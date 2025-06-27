@@ -1,0 +1,53 @@
+#custom-main-wrapper {
+  &[data-layout="vertical"]{
+    .topbar .top-navbar .navbar-header {
+      &[data-logobg="skin6"] {
+        background: #fff;
+        .navbar-brand {
+          .dark-logo {
+            display: inline;
+          }
+          .logo-dim {
+            display: none;
+          }
+        }
+        .top-toggler,
+        .topbartoggler {
+          color: #54667a;
+        }
+      }
+    }
+    .topbar .navbar-collapse,
+    .topbar {
+      &[data-navbarbg="skin1"] {
+        background: #009efb;
+      }
+    }
+    .left-sidebar {
+      &[data-sidebarbg="skin6"] {
+        background: #fff;
+        .left-menu {
+          ul {
+            background: #fff;
+            .left-menu-item {
+              &.active {
+                > .left-menu-link {
+                  color: $info;
+                  i {
+                    color: $info;
+                  }
+                }
+              }
+              .left-menu-link {
+                color: $sidebar-text-dark;
+                i {
+                  color: #4f5467;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.custom-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .custom-card-header {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .custom-card-body {
+    padding: 0 20px;
+  }
+  
+  .custom-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .custom-label {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .custom-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .custom-button-group {
+    margin-top: 20px;
+  }
+  
+  .custom-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .custom-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  .custom-link:hover {
+    text-decoration: underline;
+  }
+  .button-eye {
+    position: absolute;
+    right: 10px; /* Adjust the right position as needed */
+    top: 50%; /* Adjust the top position as needed */
+    transform: translateY(-50%);
+  }
+  
+  .input-group {
+    position: relative;
+  }
+  
+  
